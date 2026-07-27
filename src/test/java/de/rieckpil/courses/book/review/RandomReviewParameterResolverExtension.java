@@ -1,0 +1,23 @@
+package de.rieckpil.courses.book.review;
+
+import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.ParameterContext;
+import org.junit.jupiter.api.extension.ParameterResolutionException;
+import org.junit.jupiter.api.extension.ParameterResolver;
+
+import java.util.List;
+
+public class RandomReviewParameterResolverExtension implements ParameterResolver {
+
+    private static List<String> badReviews = List.of("one", "two ", "three");
+
+    @Override
+    public boolean supportsParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
+        return parameterContext.isAnnotated(RandomReview.class);
+    }
+
+    @Override
+    public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
+        return null;
+    }
+}
