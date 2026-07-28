@@ -9,21 +9,21 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ExtendWith(RandomReviewParameterResolverExtension.class)
 class ReviewVerifierTest {
 
-    private ReviewVerifier reviewVerifier;
+  private ReviewVerifier reviewVerifier;
 
-    @RandomReview
-    String review;
+//    @RandomReview
+//    String review;
 
-    @BeforeEach
-    void setUp() {
-        reviewVerifier = new ReviewVerifier();
+  @BeforeEach
+  void setUp() {
+    reviewVerifier = new ReviewVerifier();
 
-    }
+  }
 
-    @RepeatedTest(5)
-    void givenBadReview_whenReview_thenFail() {
+  @RepeatedTest(5)
+  void givenBadReview_whenReview_thenFail(@RandomReview String review) {
 //        boolean result = reviewVerifier.doesMeetQualityStandards(review, @NonNull String userId );
-        boolean result = reviewVerifier.doesMeetQualityStandards(review );
-        assertThat(result).isFalse();
-    }
+    boolean result = reviewVerifier.doesMeetQualityStandards(review);
+    assertThat(result).withFailMessage("ReviewVerifier did not detect random bad review").isFalse();
+  }
 }

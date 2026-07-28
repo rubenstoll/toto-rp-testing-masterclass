@@ -6,10 +6,11 @@ import org.junit.jupiter.api.extension.ParameterResolutionException;
 import org.junit.jupiter.api.extension.ParameterResolver;
 
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomReviewParameterResolverExtension implements ParameterResolver {
 
-    private static List<String> badReviews = List.of("one", "two ", "three");
+    private static final List<String> badReviews = List.of("one", "two ", "three", "Lorem ipsum", "I I I I I", "x x x x x x x x x x x x shit");
 
     @Override
     public boolean supportsParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
@@ -18,6 +19,6 @@ public class RandomReviewParameterResolverExtension implements ParameterResolver
 
     @Override
     public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
-        return null;
+        return badReviews.get(ThreadLocalRandom.current().nextInt(0, badReviews.size()));
     }
 }

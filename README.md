@@ -16,6 +16,7 @@ rieckpil Testing Spring Boot Applications Masterclass
 ## 2 Your first JUnit Jupiter Extension
 
 - [A Guide to @RepeatedTest in JUnit 5+](https://www.baeldung.com/junit-5-repeated-test)
+- [Inject Parameters into JUnit Jupiter Unit Tests](https://www.baeldung.com/junit-5-parameters)
 - []()
 
 ## 3 Using P6SPY for more insights with @DataJpaTest

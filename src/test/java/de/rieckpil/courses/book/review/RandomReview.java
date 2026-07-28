@@ -7,6 +7,6 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 //@Target(PARAMETER)
-@Target(ElementType.FIELD)
+@Target({ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER})
 
  public @interface RandomReview {}

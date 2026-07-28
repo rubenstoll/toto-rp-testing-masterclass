@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class ReviewVerifier {
 
   private boolean doesNotContainSwearWords(String review) {
-    return !review.contains("shit");
+    return review.contains("shit");
   }
 
   public boolean doesMeetQualityStandards(String review) {
